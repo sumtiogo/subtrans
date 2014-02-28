@@ -1,4 +1,4 @@
-Subtrans
+subtrans
 =========
 
 偵測檔案編碼，轉成utf-8，然後簡體轉繁體。
