@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+from __future__ import print_function
+import sys
+import os
+import cchardet
+import jianfan
+
+
+def trans(filename):
+    with open(filename) as f:
+        content = f.read()
+
+    encoding = cchardet.detect(content)['encoding']
+    content = content.decode(encoding)
+    content = jianfan.jtof(content).encode('utf-8')
+
+    return content
+
+
+def trans_dir(dir_path):
+    for path, dirs, files in os.walk(dir_path):
+        for file in files:
+            try:
+                before = os.path.join(path, file)
+                after = before + '.subtrans.srt'
+                content = trans(before)
+                with open(after, 'w') as f:
+                    f.write(content)
+            except UnicodeError as e:
+                print("can't transfer %s" % before)
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        sys.exit('usage: subtrans [file|dir]')
+
+    path = sys.argv[1]
+
+    if os.path.isfile(path):
+        print(trans(path))
+
+    if os.path.isdir(path):
+        trans_dir(path)
