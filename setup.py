@@ -6,6 +6,6 @@ setup(
     package=find_packages(),
     install_requires=[
         'cchardet',
-        'jianfan'
+        'jianfan==0.0.2'
     ],
 )
