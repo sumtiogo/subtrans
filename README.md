@@ -6,9 +6,7 @@ subtrans
 
 Install
 -------
-1. download this package
-2. excute `python setup.py install`
-3. that's it!
+    pip install git+https://github.com/sumtiogo/subtrans.git --allow-external jianfan --allow-unverified jianfan
 
 Usage
 ------
