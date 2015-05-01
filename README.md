@@ -8,6 +8,8 @@ Install
 -------
     pip install git+https://github.com/sumtiogo/subtrans.git --allow-external jianfan --allow-unverified jianfan
 
+you may need to restart bash
+
 Usage
 ------
 
